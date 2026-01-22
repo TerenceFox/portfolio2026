@@ -95,11 +95,15 @@ nav a.active {
 }
 
 nav .nav-resume {
-  color: var(--color-primary);
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-xs) var(--space-md);
+  transition: background var(--transition);
 }
 
 nav .nav-resume:hover {
-  color: var(--color-text);
+  background: var(--color-primary);
+  color: var(--color-bg);
 }
 
 /* Hero */
