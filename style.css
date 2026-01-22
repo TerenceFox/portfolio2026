@@ -85,6 +85,10 @@ nav a:hover {
   color: var(--color-text);
 }
 
+nav a.active {
+  color: var(--color-text);
+}
+
 /* Hero */
 #hero {
   min-height: 100vh;
