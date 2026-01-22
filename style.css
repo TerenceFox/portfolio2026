@@ -169,6 +169,13 @@ nav a:hover {
   padding: var(--space-2xl) var(--space-lg);
 }
 
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
 #work h2 {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
@@ -176,7 +183,27 @@ nav a:hover {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0;
+}
+
+.work-controls {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.work-controls button {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  transition: color var(--transition);
+}
+
+.work-controls button:hover {
+  color: var(--color-primary);
 }
 
 /* Project Cards */
