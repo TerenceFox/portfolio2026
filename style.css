@@ -1,0 +1,69 @@
+:root {
+  /* Colors */
+  --color-bg: #F4F2ED;          /* Paper White */
+  --color-text: #0B0B0B;        /* Ink Black */
+  --color-text-muted: #5A5F5B;  /* Stone Gray */
+  --color-primary: #D45500;     /* Burnt Clay (accent only) */
+  --color-border: #5A5F5B;
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 8rem;
+
+  /* Layout */
+  --max-width: 800px;
+
+  /* Misc */
+  --radius: 4px;
+  --transition: 150ms ease;
+}
+
+/* TEMP: Color swatches */
+.color-swatches {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #f5f5f5;
+  z-index: 9999;
+}
+
+.color-swatches div {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+
+.color-swatches span {
+  font-size: 10px;
+  font-family: monospace;
+  background: white;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
