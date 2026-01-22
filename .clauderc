@@ -1,0 +1,14 @@
+{
+  "context_files": [
+    "docs/portfolio_prd.md",
+    "docs/Terence_Fox_Brand_Guide_v2.pdf",
+    "files/Terence_Fox__Technical_Product_Manager.pdf",
+    "assets/logo.png"
+  ],
+  "project_info": {
+    "name": "Terence Fox Portfolio Website",
+    "type": "static-site",
+    "tech_stack": "vanilla HTML/CSS/JavaScript",
+    "primary_reference": "docs/portfolio_prd.md"
+  }
+}
