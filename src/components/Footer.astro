@@ -1,0 +1,14 @@
+---
+interface Props {
+  logoSrc: string;
+  logoAlt: string;
+  copyright: string;
+}
+
+const { logoSrc, logoAlt, copyright } = Astro.props;
+---
+
+<footer>
+  <img src={logoSrc} alt={logoAlt} class="footer-logo">
+  <p>{copyright}</p>
+</footer>

@@ -1,0 +1,29 @@
+---
+// This component wraps the work section with expand/collapse controls
+// Project cards are passed via the default slot
+---
+
+<section id="work">
+  <div class="work-header">
+    <h2>Work</h2>
+    <div class="work-controls">
+      <button type="button" id="expand-all">Expand all</button>
+      <button type="button" id="collapse-all">Collapse all</button>
+    </div>
+  </div>
+  <slot />
+</section>
+
+<script>
+  const expandAll = document.getElementById('expand-all');
+  const collapseAll = document.getElementById('collapse-all');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  expandAll?.addEventListener('click', () => {
+    projectCards.forEach(card => (card as HTMLDetailsElement).open = true);
+  });
+
+  collapseAll?.addEventListener('click', () => {
+    projectCards.forEach(card => (card as HTMLDetailsElement).open = false);
+  });
+</script>

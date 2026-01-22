@@ -1,0 +1,21 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  positioning: string;
+}
+
+const { name, title, positioning } = Astro.props;
+---
+
+<section id="hero">
+  <div class="hero-portrait">
+    <slot name="portrait">
+      <!-- Default placeholder if no portrait provided -->
+      <div class="portrait-placeholder"></div>
+    </slot>
+  </div>
+  <h1>{name}</h1>
+  <p class="title">{title}</p>
+  <p class="positioning">{positioning}</p>
+</section>

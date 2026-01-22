@@ -1,0 +1,14 @@
+---
+interface Props {
+  paragraphs: string[];
+}
+
+const { paragraphs } = Astro.props;
+---
+
+<section id="about">
+  <h2>About</h2>
+  {paragraphs.map((text) => (
+    <p>{text}</p>
+  ))}
+</section>
