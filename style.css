@@ -348,6 +348,28 @@ nav a:hover {
   color: var(--color-bg);
 }
 
+/* Footer */
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.6;
+}
+
+footer p {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
 /* TEMP: Color swatches */
 .color-swatches {
   display: flex;
