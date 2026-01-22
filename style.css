@@ -94,6 +94,14 @@ nav a.active {
   color: var(--color-text);
 }
 
+nav .nav-resume {
+  color: var(--color-primary);
+}
+
+nav .nav-resume:hover {
+  color: var(--color-text);
+}
+
 /* Hero */
 #hero {
   min-height: 100vh;
@@ -310,6 +318,22 @@ nav a.active {
   position: absolute;
   left: 0;
   color: var(--color-border);
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.tech-stack span {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: rgba(0, 0, 0, 0.05);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius);
 }
 
 /* Contact */
