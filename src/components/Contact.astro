@@ -21,7 +21,8 @@ const { links } = Astro.props;
       <li>
         <a
           href={href}
-          download={download}
+          tabindex="0"
+          download={download ? true : undefined}
           target={external ? '_blank' : undefined}
           rel={external ? 'noopener' : undefined}
         >
