@@ -95,10 +95,19 @@ nav a.active {
 }
 
 nav .nav-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
   background: var(--color-text);
   color: var(--color-bg);
   padding: var(--space-xs) var(--space-md);
   transition: background var(--transition);
+}
+
+nav .nav-resume .icon {
+  width: 1em;
+  height: 1em;
+  filter: invert(1);
 }
 
 nav .nav-resume:hover {
