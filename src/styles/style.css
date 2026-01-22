@@ -36,6 +36,30 @@
   /* Misc */
   --radius: 4px;
   --transition: 150ms ease;
+  --focus-outline: 2px solid var(--color-primary);
+  --focus-offset: 2px;
+}
+
+/* Focus states for keyboard navigation */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-md);
 }
 
 /* Smooth scrolling */
@@ -232,7 +256,8 @@ nav .nav-resume:hover {
   transition: color var(--transition);
 }
 
-.work-controls button:hover {
+.work-controls button:hover,
+.work-controls button:focus-visible {
   color: var(--color-primary);
 }
 
@@ -256,7 +281,8 @@ nav .nav-resume:hover {
   display: none;
 }
 
-.project-card summary:hover {
+.project-card summary:hover,
+.project-card summary:focus-visible {
   background: rgba(0, 0, 0, 0.02);
 }
 
@@ -398,7 +424,8 @@ nav .nav-resume:hover {
   height: 1em;
 }
 
-.contact-links a:hover {
+.contact-links a:hover,
+.contact-links a:focus-visible {
   color: var(--color-primary);
 }
 
