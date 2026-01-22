@@ -36,6 +36,7 @@ yarn-error.log*
 .cache/
 .parcel-cache/
 .turbo/
+.astro/
 
 # Testing
 coverage/

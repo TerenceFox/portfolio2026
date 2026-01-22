@@ -1,3 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from '../components/ProjectCard.astro';
+import '../styles/style.css';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +35,6 @@
 
   <!-- Theme -->
   <meta name="theme-color" content="#000000">
-
-  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header>
@@ -68,86 +75,15 @@
           <button type="button" id="collapse-all">Collapse all</button>
         </div>
       </div>
-      <details class="project-card">
-        <summary>
-          <span class="project-title">Project Name</span>
-          <span class="project-meta">Role — 2024</span>
-        </summary>
-        <div class="project-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Consectetur adipiscing elit</li>
-            <li>Sed do eiusmod tempor</li>
-          </ul>
-          <div class="tech-stack">
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>Node.js</span>
-            <span>PostgreSQL</span>
-          </div>
-        </div>
-      </details>
-      <details class="project-card">
-        <summary>
-          <span class="project-title">Another Project</span>
-          <span class="project-meta">Lead Engineer — 2023</span>
-        </summary>
-        <div class="project-content">
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <ul>
-            <li>Excepteur sint occaecat cupidatat</li>
-            <li>Non proident sunt in culpa</li>
-            <li>Qui officia deserunt mollit</li>
-          </ul>
-          <div class="tech-stack">
-            <span>Python</span>
-            <span>Django</span>
-            <span>AWS</span>
-            <span>Redis</span>
-          </div>
-        </div>
-      </details>
-      <details class="project-card">
-        <summary>
-          <span class="project-title">Third Project</span>
-          <span class="project-meta">Technical PM — 2022</span>
-        </summary>
-        <div class="project-content">
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <ul>
-            <li>Nisi ut aliquip ex ea commodo</li>
-            <li>Consequat duis aute irure</li>
-            <li>Dolor in reprehenderit</li>
-          </ul>
-          <div class="tech-stack">
-            <span>Go</span>
-            <span>Kubernetes</span>
-            <span>gRPC</span>
-            <span>Terraform</span>
-          </div>
-        </div>
-      </details>
-      <details class="project-card">
-        <summary>
-          <span class="project-title">Fourth Project</span>
-          <span class="project-meta">Engineer — 2021</span>
-        </summary>
-        <div class="project-content">
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-          <ul>
-            <li>Totam rem aperiam eaque</li>
-            <li>Ipsa quae ab illo inventore</li>
-            <li>Veritatis et quasi architecto</li>
-          </ul>
-          <div class="tech-stack">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>MySQL</span>
-            <span>Docker</span>
-          </div>
-        </div>
-      </details>
+      {sortedProjects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          role={project.data.role}
+          year={project.data.year}
+          tech={project.data.tech}
+          entry={project}
+        />
+      ))}
     </section>
 
     <section id="contact">
@@ -165,6 +101,71 @@
     <p>&copy; 2025 Terence Fox</p>
   </footer>
 
-  <script type="module" src="/main.js"></script>
+  <script is:inline>
+    // Expand/collapse all project cards
+    const expandAll = document.getElementById('expand-all');
+    const collapseAll = document.getElementById('collapse-all');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    expandAll?.addEventListener('click', () => {
+      projectCards.forEach(card => card.open = true);
+    });
+
+    collapseAll?.addEventListener('click', () => {
+      projectCards.forEach(card => card.open = false);
+    });
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('main section[id]:not(#hero)');
+    const navLinks = document.querySelectorAll('nav ul a');
+
+    function setActiveLink(id) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    const observerOptions = {
+      rootMargin: '-20% 0px -70% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Handle nav link clicks
+    let clickedRecently = false;
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const id = link.getAttribute('href')?.slice(1);
+        if (id) {
+          setActiveLink(id);
+          clickedRecently = true;
+          setTimeout(() => { clickedRecently = false; }, 1000);
+        }
+      });
+    });
+
+    // Handle bottom of page for last section
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      if (clickedRecently) return;
+      const scrollingDown = window.scrollY > lastScrollY;
+      const scrolledToBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
+      if (scrolledToBottom && scrollingDown) {
+        setActiveLink('contact');
+      }
+      lastScrollY = window.scrollY;
+    });
+  </script>
 </body>
 </html>

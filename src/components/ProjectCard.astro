@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  title: string;
+  role: string;
+  year: number;
+  tech: string[];
+  entry: CollectionEntry<'projects'>;
+}
+
+const { title, role, year, tech, entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<details class="project-card">
+  <summary>
+    <span class="project-title">{title}</span>
+    <span class="project-meta">{role} — {year}</span>
+  </summary>
+  <div class="project-content">
+    <Content />
+    <div class="tech-stack">
+      {tech.map((t) => <span>{t}</span>)}
+    </div>
+  </div>
+</details>
