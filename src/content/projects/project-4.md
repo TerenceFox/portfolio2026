@@ -1,17 +1,14 @@
 ---
-title: Fourth Project
-role: Engineer
-year: 2021
+title: UK Ventilator Challenge HoloLens Project
+role: Senior Analyst, UX Engineering
+year: '2021'
 tech:
-  - Java
-  - Spring Boot
-  - MySQL
-  - Docker
+  - PowerBI
+  - Mixed Reality Toolkit
+  - Unity
 order: 4
 ---
-
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-
-- Totam rem aperiam eaque
-- Ipsa quae ab illo inventore
-- Veritatis et quasi architecto
+- Contributed AR expertise to emergency Microsoft HoloLens project during critical equipment shortages
+- Designed interfaces providing step-by-step assembly documentation in real-time through AR headsets
+- Enabled factory workers to follow complex retooling procedures without extensive retraining
+- Supported rapid conversion of manufacturing lines to produce life-saving medical equipment

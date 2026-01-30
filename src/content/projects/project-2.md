@@ -1,17 +1,17 @@
 ---
-title: Another Project
-role: Lead Engineer
-year: 2023
+title: NFL Wildcard Broadcast
+role: Software Engineer
+year: 2022-2023
 tech:
-  - Python
-  - Django
-  - AWS
+  - Angular
+  - Typescript
+  - Material UI
+  - AWS Lambdas
   - Redis
+  - Apollo GraphQL
 order: 2
 ---
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-- Excepteur sint occaecat cupidatat
-- Non proident sunt in culpa
-- Qui officia deserunt mollit
+- Developed simultaneous HD and 4K streaming capabilities for live events using TypeScript and Angular
+- Ensured system performance as platform scaled to handle 10x increase in operators during 2024 Paris Olympics
+- Collaborated with cross-functional teams to prioritize features for high-stakes delivery
+- Delivered high-quality, testable code supporting complex broadcasting scenarios
