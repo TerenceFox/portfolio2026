@@ -6,7 +6,6 @@ import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Work from '../components/Work.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
 // Fetch and sort projects
@@ -54,13 +53,12 @@ const contactLinks = [
         />
       ))}
     </Work>
-
-    <Contact links={contactLinks} />
   </main>
 
   <Footer
     logoSrc="/logo.png"
     logoAlt="Terence Fox logo"
     copyright="&copy; 2025 Terence Fox"
+    contactLinks={contactLinks}
   />
 </Layout>

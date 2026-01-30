@@ -2,7 +2,6 @@
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#work', label: 'Work' },
-  { href: '#contact', label: 'Contact' },
 ];
 ---
 
@@ -13,7 +12,7 @@ const navLinks = [
       {navLinks.map(({ href, label }) => (
         <li><a href={href}>{label}</a></li>
       ))}
-      <li><a href="/resume.pdf" download class="nav-resume"><img src="/resume.svg" alt="" class="icon">Resume</a></li>
+      <li><a href="/resume.pdf" download class="nav-resume"><img src="/icon-download.svg" alt="" class="icon">Resume</a></li>
     </ul>
   </nav>
 </header>
@@ -66,7 +65,7 @@ const navLinks = [
     const scrollingDown = window.scrollY > lastScrollY;
     const scrolledToBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
     if (scrolledToBottom && scrollingDown) {
-      setActiveLink('contact');
+      setActiveLink('work');
     }
     lastScrollY = window.scrollY;
   });

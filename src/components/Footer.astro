@@ -1,14 +1,44 @@
 ---
+interface ContactLink {
+  href: string;
+  label: string;
+  icon: string;
+  download?: boolean;
+  external?: boolean;
+}
+
 interface Props {
   logoSrc: string;
   logoAlt: string;
   copyright: string;
+  contactLinks: ContactLink[];
 }
 
-const { logoSrc, logoAlt, copyright } = Astro.props;
+const { logoSrc, logoAlt, copyright, contactLinks } = Astro.props;
 ---
 
 <footer>
-  <img src={logoSrc} alt={logoAlt} class="footer-logo">
-  <p>{copyright}</p>
+  <div class="footer-content">
+    <img src={logoSrc} alt={logoAlt} class="footer-logo">
+    <ul class="contact-links">
+      {contactLinks.map(({ href, label, icon, download, external }) => (
+        <li>
+          <a
+            href={href}
+            tabindex="0"
+            download={download ? true : undefined}
+            target={external ? '_blank' : undefined}
+            rel={external ? 'noopener' : undefined}
+          >
+            <img src={icon} alt={`${label} icon`} class="icon">
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="footer-bottom">
+      <img src={logoSrc} alt={logoAlt} class="footer-logo footer-logo-mobile">
+      <p>{copyright}</p>
+    </div>
+  </div>
 </footer>
