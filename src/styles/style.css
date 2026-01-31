@@ -7,8 +7,9 @@
   --color-border: #5A5F5B;
 
   /* Typography */
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Monaco, 'Courier New', monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -95,15 +96,23 @@ nav {
 }
 
 nav .logo {
-  font-family: var(--font-sans);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   text-decoration: none;
   color: var(--color-text);
   transition: color var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.logo-wordmark {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 nav .logo:hover {
-  color: var(--color-primary);
+  opacity: 0.7;
 }
 
 nav ul {
@@ -177,9 +186,9 @@ nav .nav-resume:hover {
 }
 
 #hero h1 {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
   margin-bottom: var(--space-sm);
   letter-spacing: -0.02em;
@@ -208,9 +217,9 @@ nav .nav-resume:hover {
 }
 
 #about h2 {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
@@ -245,9 +254,9 @@ nav .nav-resume:hover {
 }
 
 #work h2 {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
@@ -309,9 +318,9 @@ nav .nav-resume:hover {
 }
 
 .project-card .project-title {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
 }
 
@@ -337,7 +346,7 @@ nav .nav-resume:hover {
 
 /* Expanded content */
 .project-content {
-  padding: 0 var(--space-lg) var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
   border-top: 1px solid var(--color-border);
 }
 
@@ -397,9 +406,9 @@ nav .nav-resume:hover {
 }
 
 #contact h2 {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
@@ -458,25 +467,31 @@ footer {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: var(--space-lg);
 }
 
 .footer-content > .footer-logo {
-  display: none;
+  height: 60px;
+  width: auto;
+  opacity: 0.6;
 }
 
 .footer-bottom {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  display: none;
 }
 
 .footer-logo-mobile {
   height: 20px;
   width: auto;
   opacity: 0.6;
+}
+
+.footer-copyright {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 footer p {
@@ -502,6 +517,14 @@ footer p {
   /* Nav */
   header {
     padding: var(--space-sm) var(--space-md);
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  nav .logo {
+    display: none;
   }
 
   nav ul {
@@ -575,7 +598,7 @@ footer p {
   }
 
   .project-content {
-    padding: 0 var(--space-md) var(--space-md);
+    padding: var(--space-md) var(--space-lg);
   }
 
   /* Footer */
@@ -590,6 +613,10 @@ footer p {
   }
 
   .footer-content > .footer-logo {
+    display: none;
+  }
+
+  .footer-copyright {
     display: none;
   }
 

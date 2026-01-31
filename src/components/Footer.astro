@@ -26,9 +26,9 @@ const { logoSrc, logoAlt, copyright, contactLinks } = Astro.props;
           <a
             href={href}
             tabindex="0"
-            download={download ? true : undefined}
+            download={download ? '' : undefined}
             target={external ? '_blank' : undefined}
-            rel={external ? 'noopener' : undefined}
+            rel={external ? 'noopener noreferrer' : undefined}
           >
             <img src={icon} alt={`${label} icon`} class="icon">
             {label}
@@ -36,6 +36,7 @@ const { logoSrc, logoAlt, copyright, contactLinks } = Astro.props;
         </li>
       ))}
     </ul>
+    <p class="footer-copyright">{copyright}</p>
     <div class="footer-bottom">
       <img src={logoSrc} alt={logoAlt} class="footer-logo footer-logo-mobile">
       <p>{copyright}</p>
