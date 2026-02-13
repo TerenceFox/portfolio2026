@@ -1,11 +1,10 @@
 ---
 interface Props {
   name: string;
-  title: string;
   positioning: string;
 }
 
-const { name, title, positioning } = Astro.props;
+const { name, positioning } = Astro.props;
 ---
 
 <section id="hero">
@@ -15,6 +14,5 @@ const { name, title, positioning } = Astro.props;
     </slot>
   </div>
   <h1>{name}</h1>
-  <p class="title">{title}</p>
   <p class="positioning">{positioning}</p>
 </section>
