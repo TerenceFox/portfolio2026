@@ -8,7 +8,6 @@ tech:
   - Unity
 order: 4
 ---
-- Contributed AR expertise to emergency Microsoft HoloLens project during critical equipment shortages
-- Designed interfaces providing step-by-step assembly documentation in real-time through AR headsets
-- Enabled factory workers to follow complex retooling procedures without extensive retraining
-- Supported rapid conversion of manufacturing lines to produce life-saving medical equipment
+- Built AR interfaces for Microsoft HoloLens enabling UK manufacturers to retool production lines for ventilator manufacturing during COVID-19, providing real-time assembly documentation
+- Designed mixed reality interfaces allowing factory workers to follow complex retooling procedures without extensive retraining
+- Supported rapid conversion of manufacturing lines to produce life-saving medical equipment during critical equipment shortages

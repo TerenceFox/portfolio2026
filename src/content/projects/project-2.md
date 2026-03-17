@@ -5,13 +5,13 @@ year: 2022-2023
 tech:
   - Angular
   - Typescript
+  - Node.js
   - Material UI
-  - AWS Lambdas
+  - AWS Lambda
   - Redis
   - Apollo GraphQL
 order: 2
 ---
-- Developed simultaneous HD and 4K streaming capabilities for live events using TypeScript and Angular
-- Ensured system performance as platform scaled to handle 10x increase in operators during 2024 Paris Olympics
-- Collaborated with cross-functional teams to prioritize features for high-stakes delivery
-- Delivered high-quality, testable code supporting complex broadcasting scenarios
+- Built dual 4K/HD streaming UI in TypeScript/Angular, enabling simultaneous multi-quality broadcasts for live events scaling to 10x operator capacity during Paris Olympics
+- Implemented per-device streaming manifest management system in Node.js, supporting daily live event operations and enabling reliable delivery for NFL wildcard game with record concurrent viewership on Peacock
+- Developed multi-region simulcast capabilities enabling simultaneous broadcasts to three African markets without additional operator overhead, using Angular frontend and Node.js/Lambda backend

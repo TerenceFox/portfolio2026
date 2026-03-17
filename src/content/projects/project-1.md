@@ -1,19 +1,20 @@
 ---
 title: Peacock Live Streaming Platform
-role: Technical Product Manager
+role: Software Engineer / Technical Lead
 year: 2023-2025
 tech:
   - Angular
-  - Nest.js
   - Typescript
-  - Tailwind
   - Go
   - Gin
   - RabbitMQ
+  - Kubernetes
   - Postgres
+  - AWS
 order: 1
 ---
-- Managed product development for metadata delivery and transcoding tool supporting migration of three streaming platforms from disparate legacy systems to unified tech stack
-- Enabled successful onboarding of Showmax (Africa), NowTV (Europe), and Peacock, collectively serving millions of subscribers and processing thousands of live events monthly
-- Managed design sprint with external agency, tripling operator capacity to manage simultaneous live events through intuitive interface design
-- Improved sprint management and delivery processes for team of 18 engineers through BDD adoption, streamlined ceremonies, and roadmap alignment with sporting event deadlines
+- Designed OpenAPI specifications and API contracts for event-driven architecture serving three streaming platforms (Peacock, NowTV, Showmax), syndicating live events to Prime Video, YouTube Primetime, and Roku
+- Led architectural decisions for metadata delivery and transcoding platform built with Go microservices, RabbitMQ, and Kubernetes on AWS, processing thousands of live events monthly across three continents
+- Received Sports Emmy for Outstanding Live Experience as part of team delivering 2024 Paris Olympics on Peacock
+- Built prototypes in TypeScript/Angular, conducted code reviews, and submitted PRs for technical implementation
+- Coordinated 18-engineer team through complex technical migrations, establishing BDD practices and aligning delivery with live sporting event deadlines
