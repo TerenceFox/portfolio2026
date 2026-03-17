@@ -1,6 +1,8 @@
 ---
 title: About
 ---
- I started my tech career in enterprise UX engineering at Avanade before moving into software engineering at Peacock, where I built live streaming features with TypeScript and Angular. I transitioned to product management in 2023, leading development of Comcast/NBCUniversal's live event streaming platform across three continents.
+I'm a software engineer with a track record of building production systems at scale. At Peacock, I built live streaming infrastructure serving millions of users (Sports Emmy, Paris Olympics), designed APIs for event-driven architecture across three continents, and led technical teams through complex migrations.
 
-I specialize in technical products where engineering depth matters—architecting systems, coordinating global stakeholders, and bridging complex technical requirements with real user needs.
+Before that, I worked as a full-stack engineer at Avanade, rapidly adapting across tech stacks (React, Angular, Vue, .NET) for Fortune 500 clients in finance, healthcare, and manufacturing.
+
+I thrive on technical challenges where system architecture, performance, and cross-team coordination matter—whether I'm writing code, designing APIs, or leading engineering teams.
