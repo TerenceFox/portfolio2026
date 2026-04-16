@@ -1,13 +1,14 @@
 ---
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#work', label: 'Work' },
+  { href: '/#about', label: 'About' },
+  { href: '/#work', label: 'Work' },
+  { href: '/blog/', label: 'Writing' },
 ];
 ---
 
 <header>
   <nav>
-    <a href="#hero" class="logo"><img src="/wordmark.svg" alt="Terence Fox" class="logo-wordmark"><span class="logo-text">Home</span></a>
+    <a href="/#hero" class="logo" aria-label="Home"><img src="/wordmark.svg" alt="Terence Fox" class="logo-wordmark"><img src="/logo.png" alt="" class="logo-mark"></a>
     <ul>
       {navLinks.map(({ href, label }) => (
         <li><a href={href}>{label}</a></li>
@@ -18,55 +19,75 @@ const navLinks = [
 </header>
 
 <script>
-  // Active section highlighting
   const sections = document.querySelectorAll('main section[id]:not(#hero)');
-  const navLinks = document.querySelectorAll('nav ul a');
+  const linkEls = document.querySelectorAll<HTMLAnchorElement>('nav ul a');
 
-  function setActiveLink(id: string) {
-    navLinks.forEach(link => {
+  function getHash(href: string): string | null {
+    const hashIndex = href.indexOf('#');
+    return hashIndex === -1 ? null : href.slice(hashIndex + 1);
+  }
+
+  function setActiveLink(matcher: (href: string) => boolean) {
+    linkEls.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === `#${id}`) {
+      const href = link.getAttribute('href') || '';
+      if (matcher(href)) {
         link.classList.add('active');
       }
     });
   }
 
-  const observerOptions = {
-    rootMargin: '-20% 0px -70% 0px'
-  };
+  function setActiveByHash(id: string) {
+    setActiveLink(href => getHash(href) === id);
+  }
+
+  function setActiveByPath(pathname: string) {
+    setActiveLink(href => {
+      if (href.startsWith('#') || href.startsWith('/#')) return false;
+      if (href === pathname) return true;
+      return href.length > 1 && href.endsWith('/') && pathname.startsWith(href);
+    });
+  }
+
+  if (window.location.pathname !== '/') {
+    setActiveByPath(window.location.pathname);
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setActiveLink(entry.target.id);
+        setActiveByHash(entry.target.id);
       }
     });
-  }, observerOptions);
+  }, { rootMargin: '-20% 0px -70% 0px' });
 
   sections.forEach(section => observer.observe(section));
 
-  // Handle nav link clicks
   let clickedRecently = false;
-  navLinks.forEach(link => {
+  linkEls.forEach(link => {
     link.addEventListener('click', () => {
-      const href = link.getAttribute('href');
-      if (href?.startsWith('#')) {
-        setActiveLink(href.slice(1));
+      const href = link.getAttribute('href') || '';
+      const hash = getHash(href);
+      const samePageHash = hash && (href.startsWith('#') || href.startsWith('/#'));
+      if (samePageHash && window.location.pathname === '/') {
+        setActiveByHash(hash);
         clickedRecently = true;
         setTimeout(() => { clickedRecently = false; }, 1000);
       }
     });
   });
 
-  // Handle bottom of page for last section
-  let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    if (clickedRecently) return;
-    const scrollingDown = window.scrollY > lastScrollY;
-    const scrolledToBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
-    if (scrolledToBottom && scrollingDown) {
-      setActiveLink('work');
-    }
-    lastScrollY = window.scrollY;
-  });
+  if (sections.length > 0) {
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      if (clickedRecently) return;
+      const scrollingDown = window.scrollY > lastScrollY;
+      const scrolledToBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
+      if (scrolledToBottom && scrollingDown) {
+        const last = sections[sections.length - 1];
+        if (last.id) setActiveByHash(last.id);
+      }
+      lastScrollY = window.scrollY;
+    });
+  }
 </script>

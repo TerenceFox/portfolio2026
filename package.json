@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:dev": "astro build --mode development",
     "preview": "astro preview"
   },
   "devDependencies": {
@@ -13,6 +14,8 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.5.2",
-    "astro": "^5.16.14"
+    "astro": "^5.16.14",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0"
   }
 }

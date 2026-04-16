@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPublishedPosts } from '../../lib/posts';
+
+const sortedPosts = await getPublishedPosts();
+---
+
+<Layout
+  title="Writing — Terence Fox"
+  description="Essays and notes on building software, product, and engineering practice."
+>
+  <main id="main" class="blog-index">
+    <h1>Writing</h1>
+    <p class="blog-intro">Essays and notes on building software, product, and engineering practice.</p>
+
+    {sortedPosts.length === 0 ? (
+      <p class="blog-intro">New posts coming soon.</p>
+    ) : (
+      <ul class="post-list">
+        {sortedPosts.map((post) => (
+          <li><PostCard entry={post} /></li>
+        ))}
+      </ul>
+    )}
+  </main>
+</Layout>

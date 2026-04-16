@@ -46,3 +46,6 @@ coverage/
 
 # Local Netlify folder
 .netlify
+
+# Specs (symlinked from Obsidian vault)
+specs/

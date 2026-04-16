@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Prose from '../../components/Prose.astro';
+import PostMeta from '../../components/PostMeta.astro';
+import { getPublishedPosts } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, description, date, updated, tags } = post.data;
+---
+
+<Layout
+  title={`${title} — Terence Fox`}
+  description={description}
+  ogType="article"
+  canonical={`/blog/${post.slug}/`}
+  publishedTime={date}
+  modifiedTime={updated}
+>
+  <main id="main">
+    <Prose>
+      <h1>{title}</h1>
+      <PostMeta date={date} tags={tags} />
+      <Content />
+      <a href="/blog/" class="back-link">← Back to all posts</a>
+    </Prose>
+  </main>
+</Layout>
